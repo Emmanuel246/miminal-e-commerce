@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_shop/componenets/my_list_tile.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
@@ -8,25 +9,54 @@ class MyDrawer extends StatelessWidget {
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.background,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // drawer header: logo
-          DrawerHeader(
-            child: Center(
-              child: Icon(
-                Icons.shopping_bag,
-                size: 72,
-                color: Theme.of(context).colorScheme.inversePrimary,
+          Column(
+            children: [
+              // drawer header: logo
+              DrawerHeader(
+                child: Center(
+                  child: Icon(
+                    Icons.shopping_bag,
+                    size: 72,
+                    color: Theme.of(context).colorScheme.inversePrimary,
+                  ),
+                ),
               ),
+
+              const SizedBox(
+                height: 25,
+              ),
+
+              // shop tile
+              MyListTile(
+                text: "Shop",
+                icon: Icons.home,
+                onTap: () => Navigator.pop(context),
+              ),
+              //cart tile
+              MyListTile(
+                  text: "Cart",
+                  icon: Icons.shopping_cart,
+                  onTap: () {
+                    // pop drawer first
+
+                    Navigator.pop(context);
+                    //go to the cart page
+                    Navigator.pushNamed(context, '/cart_page');
+                  }),
+            ],
+          ),
+          //exit shop
+          Padding(
+            padding: const EdgeInsets.only(bottom: 25.0),
+            child: MyListTile(
+              text: "Exit",
+              icon: Icons.logout,
+              onTap: () => Navigator.pushAndRemoveUntil(
+                  context, '/intro_page', (route) => false),
             ),
           ),
-
-          const SizedBox(height: 25,),
-
-          // shop tile
-          ListTile()
-          //cart tile
-
-          //exit shop
         ],
       ),
     );
