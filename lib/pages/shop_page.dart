@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:minimal_shop/componenets/my_drawer.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
@@ -14,7 +15,7 @@ class ShopPage extends StatelessWidget {
         title: Text("Shop Page"),
       
       ),
-      drawer: Drawer(),
+      drawer: MyDrawer(),
     );
   }
 }
