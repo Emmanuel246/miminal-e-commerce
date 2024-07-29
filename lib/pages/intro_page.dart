@@ -13,10 +13,12 @@ class IntroPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // logo
-            Icon(Icons.shopping_bag,
-            size: 72,
-            color: Theme.of(context).colorScheme.inversePrimary,
+            Image.asset('assets/black_lion.jpeg', height: 250, 
             ),
+            // Icon(Icons.shopping_bag,
+            // size: 72,
+            // color: Theme.of(context).colorScheme.inversePrimary,
+            // ),
           const SizedBox(height: 25,),
 
             // title
